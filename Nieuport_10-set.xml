@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+
+************************************************************************
+-->
+
+
+<PropertyList>
+
+    <note>
+        This model was created using publicly available data, publicly available
+        technical reports, textbooks, and guesses. It contains no proprietary or
+        restricted data. It has been validated only to the extent that it seems
+        to "fly right", and possibly to comply to published, publicly known,
+        performance data (maximum speed, endurance, etc.). Thus, this model
+        is meant for educational and entertainment purposes only.
+
+        This simulation model is not endorsed by any manufacturer, nor is the developer asking.
+    </note>
+
+ <sim include="Systems/views.xml">
+
+	<description>Nieuport-10</description>
+        <author>LesterBoffo FDM, 3D model</author>
+        <status>"CREATIVE COMMON BY-NC-SA Copyright"</status>
+        <version>0.01 yasim revision  2016-11-20</version>
+
+	<flight-model archive="y">yasim</flight-model>
+	<aero archive="y">Nieuport_10</aero>
+	<model>
+		<path archive="y">Aircraft/Nieuport_10/Models/nieuport_10.xml</path>
+	</model>
+	
+
+    <submodels> 
+      <serviceable type="bool">true</serviceable>
+      <path>Aircraft/Nieuport_10/Models/Effects/guns/submodels.xml</path>
+    </submodels>
+
+        <startup>
+            <splash-texture>Aircraft/Nieuport_10/splash.jpg</splash-texture>
+        </startup>
+
+        <current-view>
+            <field-of-view type="double">69.0</field-of-view>
+        </current-view>
+        <chase-distance-m type="double">-23.0</chase-distance-m>
+
+	<sound>
+		<audible>true</audible>
+		<path archive="y">Aircraft/Nieuport_10/Sounds/Nieuport_10-sound.xml</path>
+	</sound>
+
+	   <menubar include="Nasal/nieuport-10-menu.xml"/>
+
+   <!-- <systems>
+    <property-rule n="100">
+       <name>gear_agl_m</name>
+       <path>Aircraft/Nieuport_10/Systems/gear-AGL.xml</path>
+    </property-rule>
+   </systems> -->
+
+         <!-- Payload -->
+  <weight n="0">
+      <name>Pilot</name>
+      <weight-lb>160</weight-lb>
+      <max-lb>220</max-lb>
+      <min-lb>120</min-lb>
+  </weight> 
+
+ </sim>
+
+
+ <autopilot>
+     <settings>
+         <target-altitude-ft type="float">2000</target-altitude-ft>
+         <heading-bug-deg type="float">330</heading-bug-deg>
+     </settings>
+ </autopilot>
+ 
+ <input>
+   <keyboard include="Nasal/nieuport-10-keyboard.xml"/>
+ </input>
+
+ <controls>
+	<gear>
+		<brake-parking type="double">1.0</brake-parking>
+	</gear>
+ </controls>
+
+
+ <nasal>
+    <guns>
+      <file>Aircraft/Nieuport_10/Nasal/weapons.nas</file>
+      <file>Aircraft/Nieuport_10/Nasal/revi.nas</file>
+    </guns>
+	<Nieuport_10>
+	 <file>Aircraft/Nieuport_10/Nasal/eng_coupe-utils.nas</file>
+     </Nieuport_10>
+     <liveries>
+     <file>Aircraft/Nieuport_10/Nasal/liveries.nas</file>
+     </liveries>
+ </nasal>
+
+</PropertyList>
